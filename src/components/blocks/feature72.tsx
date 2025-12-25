@@ -22,32 +22,32 @@ interface Feature72Props {
 }
 
 const Feature72 = ({
-  title = "Powerful Features",
-  description = "Discover the powerful features that make our platform stand out from the rest. Built with the latest technology and designed for maximum productivity.",
+  title = "What We Build",
+  description = "From concept to launch, we craft digital products that actually work. Custom-built solutions designed to scale with your business and automate the boring stuff.",
   buttonUrl = "https://shadcnblocks.com",
   buttonText = "Book a demo",
   features = [
     {
       id: "feature-1",
-      heading: "Modern Design",
+      heading: "Custom Websites",
       description:
-        "Clean and intuitive interface built with the latest design principles. Optimized for the best user experience.",
+        "High-performance sites built for speed and conversions. No templates, no bloat—just clean code that ranks and converts.",
       image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
       url: "https://shadcnblocks.com",
     },
     {
       id: "feature-2",
-      heading: "Responsive Layout",
+      heading: "Mobile & Web Apps",
       description:
-        "Fully responsive design that works seamlessly across all devices and screen sizes. Perfect for any platform.",
+        "Native and cross-platform applications that your users will actually want to open. Smooth UX, robust backends, built to enage.",
       image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
       url: "https://shadcnblocks.com",
     },
     {
       id: "feature-3",
-      heading: "Easy Integration",
+      heading: "Autonomous Workflows",
       description:
-        "Simple integration process with comprehensive documentation and dedicated support team.",
+        "Purpose-built AI systems that don't just automate tasks—they make decisions. Smart enough to handle edge cases, reliable enough to trust with your business operations.",
       image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-3.svg",
       url: "https://shadcnblocks.com",
     },

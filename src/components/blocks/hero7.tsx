@@ -1,8 +1,7 @@
 import { Star } from "lucide-react";
 import React from "react";
 
-import { cn } from "@/lib/utils";
-
+import { cn } from "@/lib/utils"; 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
@@ -26,8 +25,8 @@ interface Hero7Props {
 }
 
 const Hero7 = ({
-  heading = "A Collection of Components Built With Shadcn & Tailwind",
-  description = "Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.",
+  heading = "We Build Software For Others and Ourselves",
+  description = "Software built to solve real problems. Browse our products, read the documentation, and stay updated with the latest features and releases.",
   button = {
     text: "Discover all components",
     url: "https://www.shadcnblocks.com",

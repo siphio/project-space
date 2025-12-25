@@ -34,16 +34,16 @@ interface Blog7Props {
 
 const Blog7 = ({
   tagline = "Latest Updates",
-  heading = "Blog Posts",
-  description = "Discover the latest trends, tips, and best practices in modern web development. From UI components to design systems, stay updated with our expert insights.",
+  heading = "Software We Own & Operate",
+  description = "These aren't client projects—they're ours. Built from scratch, fully managed, and continuously improved. Here's what's currently live in our product suite.",
   buttonText = "View all articles",
   buttonUrl = "https://shadcnblocks.com",
   posts = [
     {
       id: "post-1",
-      title: "Getting Started with shadcn/ui Components",
+      title: "Spending Insights - Web App",
       summary:
-        "Learn how to quickly integrate and customize shadcn/ui components in your Next.js projects. We'll cover installation, theming, and best practices for building modern interfaces.",
+        "AI-driven financial clarity. Connect your accounts and let the AI surface spending patterns, flag anomalies, and deliver insights you'd actually miss. Track every subscription in one place, get alerts before they renew, and see exactly where your money goes—all on a dashboard that makes sense of your finances at a glance.",
       label: "Tutorial",
       author: "Sarah Chen",
       published: "1 Jan 2024",
@@ -95,7 +95,7 @@ const Blog7 = ({
             </a>
           </Button>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="grid grid-cols-3 gap-4 lg:gap-8">
           {posts.map((post) => (
             <Card
               key={post.id}
