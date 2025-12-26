@@ -52,25 +52,25 @@ const Blog7 = ({
     },
     {
       id: "post-2",
-      title: "Building Accessible Web Applications",
+      title: "Checklist Manager - Web App",
       summary:
-        "Explore how to create inclusive web experiences using shadcn/ui's accessible components. Discover practical tips for implementing ARIA labels, keyboard navigation, and semantic HTML.",
+        "AI-native task management built for clarity. Organize your checklists while intelligent agents analyze completion patterns, predict blockers, and recommend smarter workflows. Track streaks, visualize progress, and let AI surface the insights you'd miss—all in one focused dashboard.",
       label: "Accessibility",
       author: "Marcus Rodriguez",
       published: "1 Jan 2024",
       url: "https://shadcnblocks.com",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+      image: "/checklist-master.png",
     },
     {
       id: "post-3",
-      title: "Modern Design Systems with Tailwind CSS",
+      title: "AI Agents - Workflows & Use Cases",
       summary:
-        "Dive into creating scalable design systems using Tailwind CSS and shadcn/ui. Learn how to maintain consistency while building flexible and maintainable component libraries.",
+        "Genuinely intelligent agents, not glorified chatbots. Our AI understands context, reasons through complexity, and adapts to situations it hasn't seen before. They synthesize information across systems, spot patterns humans miss, and make decisions grounded in your business reality. Intelligence that scales expertise, not just tasks.",
       label: "Design Systems",
       author: "Emma Thompson",
       published: "1 Jan 2024",
       url: "https://shadcnblocks.com",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+      image: "/ai-agent.png",
     },
   ],
   className,
@@ -79,7 +79,7 @@ const Blog7 = ({
     <section className={cn("py-32", className)}>
       <div className="container mx-auto flex flex-col items-center gap-16 lg:px-16">
         <div className="text-center">
-          <Badge variant="secondary" className="mb-6">
+          <Badge variant="secondary" className="mb-6 bg-orange-300/30 text-black hover:bg-orange-300/40">
             {tagline}
           </Badge>
           <h2 className="mb-3 text-3xl font-semibold text-pretty md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">
