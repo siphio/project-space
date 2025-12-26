@@ -36,24 +36,24 @@ const Hero7 = ({
     rating: 5.0,
     avatars: [
       {
-        src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp",
-        alt: "Avatar 1",
+        src: "/branding/technology-logos/claude.png",
+        alt: "Claude",
       },
       {
-        src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp",
-        alt: "Avatar 2",
+        src: "/branding/technology-logos/supabase.jpeg",
+        alt: "Supabase",
       },
       {
-        src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-3.webp",
-        alt: "Avatar 3",
+        src: "/branding/technology-logos/apple.png",
+        alt: "Apple",
       },
       {
-        src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-4.webp",
-        alt: "Avatar 4",
+        src: "/branding/technology-logos/stripe.jpeg",
+        alt: "Stripe",
       },
       {
-        src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-5.webp",
-        alt: "Avatar 5",
+        src: "/branding/technology-logos/android.jpeg",
+        alt: "Android",
       },
     ],
   },
@@ -74,7 +74,10 @@ const Hero7 = ({
         <div className="mx-auto mt-10 flex w-fit flex-col items-center gap-4 sm:flex-row">
           <span className="mx-4 inline-flex items-center -space-x-4">
             {reviews.avatars.map((avatar, index) => (
-              <Avatar key={index} className="size-14 border">
+              <Avatar
+                key={index}
+                className="size-14 border transition-all duration-300 ease-out hover:z-10 hover:-translate-y-2 hover:scale-110 hover:shadow-lg cursor-pointer"
+              >
                 <AvatarImage src={avatar.src} alt={avatar.alt} />
               </Avatar>
             ))}

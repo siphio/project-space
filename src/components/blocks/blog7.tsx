@@ -48,7 +48,7 @@ const Blog7 = ({
       author: "Sarah Chen",
       published: "1 Jan 2024",
       url: "https://shadcnblocks.com",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+      image: "/spending-inisghts.png",
     },
     {
       id: "post-2",
