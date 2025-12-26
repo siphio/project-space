@@ -65,17 +65,12 @@ const Hero7 = ({
       <div className="relative">
         {/* Background image as actual element - dictates its own size */}
         <img
-          src="/landing-page-background.png"
+          src="/twPWuIX-p0JRARxuN-oqN.png"
           alt=""
           className="w-full h-auto block"
           aria-hidden="true"
         />
 
-        {/* Top gradient - positioned relative to the IMAGE */}
-        <div
-          className="absolute top-0 left-0 right-0 h-[25%] bg-gradient-to-b from-white to-transparent pointer-events-none"
-          aria-hidden="true"
-        />
 
         {/* Bottom gradient - positioned relative to the IMAGE */}
         <div

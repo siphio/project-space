@@ -122,7 +122,7 @@ const Navbar1 = ({
   className,
 }: Navbar1Props) => {
   return (
-    <section className={cn("py-4", className)}>
+    <section className={cn("py-4 absolute top-0 left-0 right-0 z-50 bg-transparent", className)}>
       <div className="container">
         {/* Menu */}
         <nav className="flex items-center justify-between">
@@ -177,7 +177,7 @@ const renderMenuItem = (item: MenuItem) => {
     <NavigationMenuItem key={item.title}>
       <NavigationMenuLink
         href={item.url}
-        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground"
+        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-black transition-colors hover:text-black/70"
       >
         {item.title}
       </NavigationMenuLink>
