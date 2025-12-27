@@ -25,7 +25,7 @@ interface Hero7Props {
 }
 
 const Hero7 = ({
-  heading = "We Build Software For Others and Ourselves",
+  heading = "We Build Software For Others and Ourselves.",
   description = "Software built to solve real problems. Browse our products, read the documentation, and stay updated with the latest features and releases.",
   button = {
     text: "Discover all components",
@@ -82,8 +82,8 @@ const Hero7 = ({
         <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
           <div className="container text-center">
             <div className="mx-auto flex max-w-5xl flex-col gap-6">
-              <h1 className="text-3xl font-semibold lg:text-6xl">{heading}</h1>
-              <p className="text-balance text-muted-foreground lg:text-lg">
+              <h1 className="text-5xl font-semibold lg:text-8xl text-black font-sans tracking-tighter">{heading}</h1>
+              <p className="text-balance text-black lg:text-lg font-[family-name:var(--font-space-grotesk)] font-medium">
                 {description}
               </p>
             </div>
@@ -95,9 +95,13 @@ const Hero7 = ({
                 {reviews.avatars.map((avatar, index) => (
                   <Avatar
                     key={index}
-                    className="size-14 border transition-all duration-300 ease-out hover:z-10 hover:-translate-y-2 hover:scale-110 hover:shadow-lg cursor-pointer"
+                    className="size-14 transition-all duration-300 ease-out hover:z-10 hover:-translate-y-2 hover:scale-110 hover:shadow-lg cursor-pointer"
                   >
-                    <AvatarImage src={avatar.src} alt={avatar.alt} />
+                    <AvatarImage
+                      src={avatar.src}
+                      alt={avatar.alt}
+                      className={avatar.alt === "Claude" ? "scale-125" : ""}
+                    />
                   </Avatar>
                 ))}
               </span>
@@ -109,11 +113,11 @@ const Hero7 = ({
                       className="size-5 fill-yellow-400 text-yellow-400"
                     />
                   ))}
-                  <span className="mr-1 font-semibold">
+                  <span className="mr-1 font-semibold text-black">
                     {reviews.rating?.toFixed(1)}
                   </span>
                 </div>
-                <p className="text-left font-medium text-muted-foreground">
+                <p className="text-left font-medium text-black">
                   from {reviews.count}+ reviews
                 </p>
               </div>

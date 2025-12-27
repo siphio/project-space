@@ -1,6 +1,6 @@
 "use client";
 
-import { Book, Github, Sunset, Trees, Zap } from "lucide-react";
+import { Book, Bot, Github, Sunset, Trees, Zap } from "lucide-react";
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg
@@ -47,52 +47,21 @@ interface Navbar1Props {
 const Navbar1 = ({
   logo = {
     url: "/",
-    src: "/sipho-logo-solid-background-removebg-preview.png",
+    src: "/siphio-logo-black.png",
     alt: "Siphio logo",
     title: "Siphio",
   },
   menu = [
     { title: "Home", url: "#" },
     {
-      title: "Products",
-      url: "#",
-      items: [
-        {
-          title: "Blog",
-          description: "The latest industry news, updates, and info",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Company",
-          description: "Our mission is to innovate and empower the world",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Support",
-          description:
-            "Get in touch with our support team or visit our community forums",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
-        },
-      ],
-    },
-    {
       title: "Resources",
       url: "#",
       items: [
         {
-          title: "Help Center",
+          title: "AI Assistant",
           description: "Get all the answers you need right here",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
+          icon: <Bot className="size-5 shrink-0" />,
+          url: "/#ai-assistant",
         },
         {
           title: "Contact Us",
@@ -104,19 +73,13 @@ const Navbar1 = ({
           title: "Status",
           description: "Check the current status of our services and APIs",
           icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Terms of Service",
-          description: "Our terms and conditions for using our services",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "#",
+          url: "/api-status",
         },
       ],
     },
     {
       title: "Blog",
-      url: "#",
+      url: "/blog",
     },
   ],
   className,
@@ -138,10 +101,10 @@ const Navbar1 = ({
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="https://x.com"
+              href="https://x.com/siphioai"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground transition-colors hover:text-muted-foreground"
+              className="text-black transition-colors hover:text-black/70"
             >
               <XIcon className="size-5" />
             </a>
@@ -149,7 +112,7 @@ const Navbar1 = ({
               href="https://github.com/siphio"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground transition-colors hover:text-muted-foreground"
+              className="text-black transition-colors hover:text-black/70"
             >
               <Github className="size-5" />
             </a>

@@ -47,7 +47,7 @@ const Feature1 = ({
               </p>
             )}
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
-              <Button asChild>
+              <Button asChild className="transition-transform duration-300 hover:scale-105">
                 <a href={buttonPrimary.href} target="_blank">
                   {buttonPrimary.text}
                 </a>
@@ -62,7 +62,7 @@ const Feature1 = ({
           <img
             src={imageSrc}
             alt={imageAlt}
-            className="max-h-96 w-full rounded-md object-cover"
+            className="max-h-96 w-full rounded-md object-cover animate-float-hover"
           />
         </div>
       </div>

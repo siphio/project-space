@@ -57,13 +57,14 @@ const Waitlist1 = ({ className }: Waitlist1Props) => {
 
   return (
     <section
+      id="ai-assistant"
       className={cn(
         "relative w-full -mt-32",
         className,
       )}
     >
       {/* Background image - dictates section height */}
-      <div className="relative overflow-hidden" style={{ minHeight: '75vh' }}>
+      <div className="relative overflow-hidden" style={{ minHeight: '100vh' }}>
         <img
           src="/BQiYmiVXsJHqfjf3bLqlc.png"
           alt=""
@@ -80,11 +81,11 @@ const Waitlist1 = ({ className }: Waitlist1Props) => {
         />
 
         {/* Content - positioned over the image */}
-        <div className="relative z-10 container mx-auto px-4 pt-32 pb-16 flex flex-col items-center">
+        <div className="relative z-10 container mx-auto px-4 min-h-[100vh] flex flex-col items-center justify-center pt-32">
           <h2 className="relative z-20 py-2 text-center font-sans text-4xl font-semibold tracking-tighter md:py-10 lg:text-6xl">
             Got Questions? Ask SIPHIO
           </h2>
-          <p className="text-md mx-auto max-w-xl text-center text-muted-foreground lg:text-lg">
+          <p className="text-md mx-auto max-w-xl text-center text-black font-medium lg:text-lg">
             Describe your idea or problem - our AI will ask the right questions and send your details to the team.
           </p>
 
@@ -147,6 +148,15 @@ const Waitlist1 = ({ className }: Waitlist1Props) => {
                 Send Message
               </Button>
             </div>
+          </div>
+
+          {/* Logo stamp */}
+          <div className="mt-16 flex justify-center">
+            <img
+              src="/siphio-logo-black.png"
+              alt="Siphio AI"
+              className="h-14 w-auto opacity-80"
+            />
           </div>
         </div>
       </div>

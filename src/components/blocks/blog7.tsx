@@ -47,7 +47,7 @@ const Blog7 = ({
       label: "Tutorial",
       author: "Sarah Chen",
       published: "1 Jan 2024",
-      url: "https://shadcnblocks.com",
+      url: "/notice-board/spending-insights",
       image: "/spending-inisghts.png",
     },
     {
@@ -58,7 +58,7 @@ const Blog7 = ({
       label: "Accessibility",
       author: "Marcus Rodriguez",
       published: "1 Jan 2024",
-      url: "https://shadcnblocks.com",
+      url: "/notice-board/checklist-manager",
       image: "/checklist-master.png",
     },
     {
@@ -69,7 +69,7 @@ const Blog7 = ({
       label: "Design Systems",
       author: "Emma Thompson",
       published: "1 Jan 2024",
-      url: "https://shadcnblocks.com",
+      url: "/notice-board/ai-agents",
       image: "/ai-agent.png",
     },
   ],
@@ -79,9 +79,9 @@ const Blog7 = ({
     <section className={cn("py-32", className)}>
       <div className="container mx-auto flex flex-col items-center gap-16 lg:px-16">
         <div className="text-center">
-          <Badge variant="secondary" className="mb-6 bg-orange-400/40 text-black hover:bg-orange-400/50">
-            {tagline}
-          </Badge>
+          <div className="mb-6 flex justify-center">
+            <span className="h-1 w-12 rounded-full bg-orange-500"></span>
+          </div>
           <h2 className="mb-3 text-3xl font-semibold text-pretty md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">
             {heading}
           </h2>
@@ -104,7 +104,6 @@ const Blog7 = ({
               <div className="aspect-16/9 w-full">
                 <a
                   href={post.url}
-                  target="_blank"
                   className="transition-opacity duration-200 fade-in hover:opacity-70"
                 >
                   <img
@@ -116,7 +115,7 @@ const Blog7 = ({
               </div>
               <CardHeader>
                 <h3 className="text-lg font-semibold hover:underline md:text-xl">
-                  <a href={post.url} target="_blank">
+                  <a href={post.url}>
                     {post.title}
                   </a>
                 </h3>
@@ -127,10 +126,9 @@ const Blog7 = ({
               <CardFooter>
                 <a
                   href={post.url}
-                  target="_blank"
                   className="flex items-center text-foreground hover:underline"
                 >
-                  Read more
+                  Notice Board
                   <ArrowRight className="ml-2 size-4" />
                 </a>
               </CardFooter>
