@@ -47,7 +47,7 @@ interface Navbar1Props {
 const Navbar1 = ({
   logo = {
     url: "/",
-    src: "/siphio-logo.png",
+    src: "/sipho-logo-solid-background-removebg-preview.png",
     alt: "Siphio logo",
     title: "Siphio",
   },
@@ -126,7 +126,10 @@ const Navbar1 = ({
       <div className="container">
         {/* Menu */}
         <nav className="flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center gap-6">
+              <a href={logo.url} className="flex items-center">
+                <img src={logo.src} alt={logo.alt} className="h-12 w-auto" />
+              </a>
               <NavigationMenu>
                 <NavigationMenuList>
                   {menu.map((item) => renderMenuItem(item))}

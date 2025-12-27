@@ -79,7 +79,7 @@ const Blog7 = ({
     <section className={cn("py-32", className)}>
       <div className="container mx-auto flex flex-col items-center gap-16 lg:px-16">
         <div className="text-center">
-          <Badge variant="secondary" className="mb-6 bg-orange-300/30 text-black hover:bg-orange-300/40">
+          <Badge variant="secondary" className="mb-6 bg-orange-400/40 text-black hover:bg-orange-400/50">
             {tagline}
           </Badge>
           <h2 className="mb-3 text-3xl font-semibold text-pretty md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">
