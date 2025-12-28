@@ -16,6 +16,43 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "7",
+    slug: "meet-siphio-ai-assistant",
+    title: "Meet SIPHIO: Your AI-Powered Website Assistant",
+    excerpt: "We've launched an AI assistant that answers your questions instantly, learns what you need, and connects you with our team when you're ready to build.",
+    content: `We're excited to introduce SIPHIO, our new AI-powered assistant now live on the website.
+
+## Why We Built This
+
+Visitors often have questions before reaching out. Instead of making you dig through pages or wait for emails, SIPHIO gives you instant answers about our products, services, and capabilities.
+
+## What It Can Do
+
+- **Answer Questions** - Ask about Spending Insights, Checklist Manager, AI Agents, or our freelancing services
+- **Understand Context** - The conversation flows naturally, remembering what you've discussed
+- **Connect You to Our Team** - When you're ready to explore a project, SIPHIO captures your details and summarizes the conversation for our team
+
+## How to Use It
+
+1. Scroll to the bottom of any page and find the chat widget
+2. Type your question or describe what you're looking to build
+3. Get instant, accurate answers from our knowledge base
+4. When ready, let SIPHIO pass your info to the team
+
+## Built on Real Intelligence
+
+Unlike chatbots that make things up, SIPHIO only answers from verified information. It uses tool-based queries to fetch accurate details about our products and services—no hallucinations, just facts.
+
+Try it out and let us know what you think!`,
+    category: "announcement",
+    image: "/blog-meet-siphio-ai-assistant.png",
+    author: {
+      name: "Siphio Team",
+    },
+    publishedAt: "2024-12-28",
+    featured: false,
+  },
+  {
     id: "4",
     slug: "q1-2025-product-roadmap",
     title: "Q1 2025 Product Roadmap",
