@@ -50,79 +50,6 @@ const isAffirmative = (message: string): boolean => {
   return affirmatives.some(a => lower.includes(a));
 };
 
-// Confetti component - bursts from center of chat
-const Confetti = ({ active }: { active: boolean }) => {
-  const [particles, setParticles] = useState<Array<{
-    id: number;
-    startX: number;
-    startY: number;
-    endX: number;
-    endY: number;
-    color: string;
-    delay: number;
-  }>>([]);
-
-  useEffect(() => {
-    if (active) {
-      const colors = ["#f59e0b", "#10b981", "#3b82f6", "#8b5cf6", "#ec4899"];
-      const newParticles = Array.from({ length: 30 }, (_, i) => {
-        const angle = (Math.random() * Math.PI * 2);
-        const distance = 80 + Math.random() * 120;
-        return {
-          id: i,
-          startX: 50,
-          startY: 50,
-          endX: 50 + Math.cos(angle) * distance / 2,
-          endY: 50 + Math.sin(angle) * distance / 3 + 30,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          delay: Math.random() * 0.2,
-        };
-      });
-      setParticles(newParticles);
-
-      const timer = setTimeout(() => setParticles([]), 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [active]);
-
-  if (!active || particles.length === 0) return null;
-
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-visible z-20">
-      {particles.map((p) => (
-        <div
-          key={p.id}
-          className="absolute w-2 h-2 rounded-full"
-          style={{
-            left: `${p.startX}%`,
-            top: `${p.startY}%`,
-            backgroundColor: p.color,
-            animation: `confetti-burst-${p.id} 1.2s ease-out ${p.delay}s forwards`,
-          }}
-        />
-      ))}
-      <style jsx>{`
-        ${particles.map(p => `
-          @keyframes confetti-burst-${p.id} {
-            0% {
-              left: ${p.startX}%;
-              top: ${p.startY}%;
-              opacity: 1;
-              transform: scale(1) rotate(0deg);
-            }
-            100% {
-              left: ${p.endX}%;
-              top: ${p.endY}%;
-              opacity: 0;
-              transform: scale(0.5) rotate(540deg);
-            }
-          }
-        `).join('')}
-      `}</style>
-    </div>
-  );
-};
-
 // Lead Form Component - inline version for chat
 const LeadForm = ({
   summary,
@@ -213,10 +140,13 @@ const Waitlist1 = ({ className }: Waitlist1Props) => {
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [pendingSummary, setPendingSummary] = useState<string | null>(null);
   const [isSubmittingLead, setIsSubmittingLead] = useState(false);
-  const [showConfetti, setShowConfetti] = useState(false);
 
   // Track if we're waiting for handoff confirmation
   const [awaitingHandoffResponse, setAwaitingHandoffResponse] = useState(false);
+
+  // Refs for scrolling
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   // Load session from localStorage on mount
   useEffect(() => {
@@ -262,6 +192,40 @@ const Waitlist1 = ({ className }: Waitlist1Props) => {
       console.error("Failed to save chat session:", e);
     }
   }, [sessionId, messages, tokensUsed]);
+
+  // Auto-scroll to the bottom of chat container
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      const container = chatContainerRef.current;
+      // Check if the latest message is a confirmation (has reference ID)
+      const lastMessage = messages[messages.length - 1];
+      const isConfirmation = lastMessage?.role === "ai" && lastMessage.content.includes("reference ID");
+
+      if (isConfirmation) {
+        // Instant scroll chat to bottom
+        container.scrollTop = container.scrollHeight;
+
+        // Scroll page to center the chat component on screen
+        if (chatContainerRef.current) {
+          const chatRect = chatContainerRef.current.getBoundingClientRect();
+          const chatCenter = window.scrollY + chatRect.top + (chatRect.height / 2);
+          const viewportCenter = window.innerHeight / 2;
+          const scrollTarget = chatCenter - viewportCenter;
+
+          window.scrollTo({
+            top: Math.max(0, scrollTarget),
+            behavior: "instant"
+          });
+        }
+      } else {
+        // Smooth scroll for regular messages (chat container only)
+        container.scrollTo({
+          top: container.scrollHeight,
+          behavior: "smooth"
+        });
+      }
+    }
+  }, [messages, showLeadForm]);
 
   const handleSendMessage = useCallback(async () => {
     if (!inputValue.trim() || isTyping) return;
@@ -353,9 +317,6 @@ const Waitlist1 = ({ className }: Waitlist1Props) => {
         throw new Error(result.error || "Failed to submit");
       }
 
-      // Show confetti on success
-      setShowConfetti(true);
-
       // Add confirmation message with reference ID
       const refId = result.reference_id ? ` Your reference ID is ${result.reference_id}.` : "";
       setMessages(prev => [...prev, {
@@ -366,9 +327,6 @@ const Waitlist1 = ({ className }: Waitlist1Props) => {
       // Reset form state
       setShowLeadForm(false);
       setPendingSummary(null);
-
-      // Hide confetti after animation
-      setTimeout(() => setShowConfetti(false), 3000);
     } catch (e) {
       console.error("Lead capture error:", e);
       setError(e instanceof Error ? e.message : "Failed to submit. Please try again.");
@@ -402,6 +360,7 @@ const Waitlist1 = ({ className }: Waitlist1Props) => {
 
   return (
     <section
+      ref={sectionRef}
       id="ai-assistant"
       className={cn("relative w-full -mt-32", className)}
     >
@@ -448,9 +407,9 @@ const Waitlist1 = ({ className }: Waitlist1Props) => {
             )}
 
             {messages.length > 0 && (
-              <div className="relative mb-4 rounded-2xl bg-white/90 backdrop-blur-sm p-4 shadow-lg max-h-96 overflow-y-auto">
-                <Confetti active={showConfetti} />
-
+              <div className="relative mb-4">
+                {/* Chat container */}
+                <div ref={chatContainerRef} className="relative rounded-2xl bg-white/90 backdrop-blur-sm p-4 shadow-lg max-h-96 overflow-y-auto">
                 {/* Show form OR conversation - not both */}
                 {showLeadForm && pendingSummary ? (
                   <LeadForm
@@ -461,26 +420,35 @@ const Waitlist1 = ({ className }: Waitlist1Props) => {
                   />
                 ) : (
                   <div className="space-y-3">
-                    {messages.map((message, index) => (
-                      <div
-                        key={index}
-                        className={cn(
-                          "flex",
-                          message.role === "user" ? "justify-end" : "justify-start"
-                        )}
-                      >
+                    {messages.map((message, index) => {
+                      const isLastMessage = index === messages.length - 1;
+                      const isConfirmationMessage = isLastMessage && message.role === "ai" && message.content.includes("reference ID");
+
+                      return (
                         <div
+                          key={index}
                           className={cn(
-                            "max-w-[80%] rounded-2xl px-4 py-2 text-sm",
-                            message.role === "user"
-                              ? "bg-black text-white"
-                              : "bg-muted text-foreground"
+                            "flex",
+                            message.role === "user" ? "justify-end" : "justify-start"
                           )}
                         >
-                          {message.content}
+                          <div
+                            className={cn(
+                              "max-w-[80%] rounded-2xl px-4 py-2 text-sm relative",
+                              message.role === "user"
+                                ? "bg-black text-white"
+                                : "bg-muted text-foreground",
+                              isConfirmationMessage && "ring-2 ring-green-400/50 bg-green-50"
+                            )}
+                          >
+                            {isConfirmationMessage && (
+                              <span className="absolute -top-2 -right-2 text-lg">🎉</span>
+                            )}
+                            {message.content}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                     {isTyping && (
                       <div className="flex justify-start">
                         <div className="bg-muted text-foreground rounded-2xl px-4 py-2 text-sm">
@@ -494,6 +462,7 @@ const Waitlist1 = ({ className }: Waitlist1Props) => {
                     )}
                   </div>
                 )}
+                </div>
               </div>
             )}
 

@@ -30,9 +30,8 @@ agent = Agent(
 # Register tools from feature slices
 # Tool registration happens via @agent.tool decorator when imported
 
-# NOTE: ALL TOOLS DISABLED for simpler conversations
-# The knowledge base was adding technical jargon to responses
-# from features.knowledge.tool import search_knowledge_base  # noqa: F401, E402
+# Knowledge base search - answers questions about Siphio apps, services, blog, company
+from features.knowledge.tool import search_knowledge_base  # noqa: F401, E402
 
 # NOTE: capture_lead tool is DISABLED - leads are now captured via the frontend form
 # The agent uses [HANDOFF_SUMMARY] markers to trigger the form instead
