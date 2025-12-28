@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Preview - {{TITLE}}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            border: "hsl(240 5.9% 90%)",
+            background: "hsl(0 0% 100%)",
+            foreground: "hsl(240 10% 3.9%)",
+            card: "hsl(0 0% 100%)",
+            "card-foreground": "hsl(240 10% 3.9%)",
+            muted: "hsl(240 4.8% 95.9%)",
+            "muted-foreground": "hsl(240 3.8% 46.1%)",
+            secondary: "hsl(240 4.8% 95.9%)",
+            "secondary-foreground": "hsl(240 5.9% 10%)",
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Category badge colors matching blog-page.tsx exactly */
+    .badge-company { background-color: rgb(59 130 246 / 0.1) !important; color: rgb(29 78 216) !important; }
+    .badge-hiring { background-color: rgb(34 197 94 / 0.1) !important; color: rgb(21 128 61) !important; }
+    .badge-product { background-color: rgb(168 85 247 / 0.1) !important; color: rgb(126 34 206) !important; }
+    .badge-announcement { background-color: rgb(249 115 22 / 0.1) !important; color: rgb(194 65 12) !important; }
+    .badge-engineering { background-color: rgb(99 102 241 / 0.1) !important; color: rgb(67 56 202) !important; }
+
+    /* Aspect ratio for 16:9 */
+    .aspect-16-9 {
+      aspect-ratio: 16 / 9;
+    }
+
+    /* Card base styling matching shadcn/ui card.tsx */
+    .blog-card {
+      background-color: hsl(0 0% 100%);
+      color: hsl(240 10% 3.9%);
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      border-radius: 0.75rem;
+      border: 1px solid hsl(240 5.9% 90%);
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      overflow: hidden;
+    }
+
+    /* Badge styling matching shadcn/ui badge.tsx secondary variant */
+    .blog-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid transparent;
+      padding: 0.125rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+      text-transform: capitalize;
+    }
+
+    /* Prose styling for article content */
+    .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: hsl(240 10% 3.9%); }
+    .prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: hsl(240 10% 3.9%); }
+    .prose p { color: hsl(240 3.8% 46.1%); line-height: 1.75; margin-bottom: 1rem; }
+    .prose ul { list-style-type: disc; list-style-position: inside; margin: 1rem 0; }
+    .prose li { color: hsl(240 3.8% 46.1%); margin-bottom: 0.5rem; }
+    .prose strong { color: hsl(240 10% 3.9%); font-weight: 600; }
+  </style>
+</head>
+<body class="min-h-screen" style="background-color: hsl(0 0% 100%);">
+  <!-- Preview Banner -->
+  <div class="bg-orange-500 text-white py-3 px-4 text-center font-medium sticky top-0 z-50">
+    <span class="text-lg font-semibold">Preview Mode</span>
+    <span class="mx-3">|</span>
+    <span>Review this article before publishing to /blog</span>
+  </div>
+
+  <!-- Blog Page Header (matching blog-page.tsx) -->
+  <div class="border-b" style="border-color: hsl(240 5.9% 90%);">
+    <div class="max-w-7xl mx-auto py-4 px-4">
+      <a href="#" class="inline-flex items-center gap-2 text-sm hover:opacity-70 transition-opacity" style="color: hsl(240 3.8% 46.1%);">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </div>
+
+  <div class="py-16 md:py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto flex flex-col items-center gap-16 px-4 lg:px-16">
+      <!-- Page Header (matching blog-page.tsx) -->
+      <div class="text-center">
+        <div class="mb-6 flex justify-center">
+          <span class="h-1 w-12 rounded-full bg-orange-500"></span>
+        </div>
+        <h2 class="mb-3 text-3xl font-semibold tracking-tight md:mb-4 md:text-4xl lg:mb-6 lg:text-5xl" style="color: hsl(240 10% 3.9%);">
+          News & Updates
+        </h2>
+        <p class="mb-8 md:text-base lg:text-lg max-w-2xl" style="color: hsl(240 3.8% 46.1%);">
+          Stay up to date with the latest from Siphio AI. Company news, product updates,
+          hiring announcements, and engineering insights.
+        </p>
+      </div>
+
+      <!-- Blog Cards Grid -->
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 w-full">
+
+        <!-- NEW ARTICLE CARD (with actual content) -->
+        <div class="blog-card ring-2 ring-orange-500 ring-offset-2">
+          <!-- Image -->
+          <div class="aspect-16-9 w-full">
+            <a href="#" class="block h-full transition-opacity duration-200 hover:opacity-70">
+              <img
+                src="{{IMAGE_PATH}}"
+                alt="{{TITLE}}"
+                class="h-full w-full object-cover object-center"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="h-full w-full bg-gradient-to-br from-orange-500/20 via-amber-500/10 to-yellow-500/20 items-center justify-center hidden">
+                <span class="text-4xl font-bold" style="color: rgb(249 115 22 / 0.3);">{{TITLE_INITIAL}}</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card Header -->
+          <div class="px-6 pt-6">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="blog-badge badge-{{CATEGORY}}">
+                {{CATEGORY}}
+              </span>
+              <span class="text-sm" style="color: hsl(240 3.8% 46.1%);">
+                {{DATE}}
+              </span>
+            </div>
+            <h3 class="text-lg font-semibold md:text-xl hover:underline cursor-pointer" style="color: hsl(240 10% 3.9%);">
+              {{TITLE}}
+            </h3>
+          </div>
+
+          <!-- Card Content -->
+          <div class="px-6 pt-2">
+            <p style="color: hsl(240 3.8% 46.1%);">{{EXCERPT}}</p>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="flex items-center px-6 pb-6">
+            <a href="#" class="flex items-center hover:underline" style="color: hsl(240 10% 3.9%);">
+              Read more
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- NEW Badge -->
+          <div class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg" style="position: relative; margin-top: -100%; margin-left: auto; margin-right: -8px; width: fit-content; transform: translateY(-50%);">
+            NEW
+          </div>
+        </div>
+
+        <!-- Existing Article 1 (dimmed for comparison) -->
+        <div class="blog-card opacity-60">
+          <div class="aspect-16-9 w-full">
+            <div class="h-full w-full bg-gradient-to-br from-orange-500/20 via-amber-500/10 to-yellow-500/20 flex items-center justify-center">
+              <span class="text-4xl font-bold" style="color: rgb(249 115 22 / 0.3);">Q</span>
+            </div>
+          </div>
+          <div class="px-6 pt-6">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="blog-badge badge-product">product</span>
+              <span class="text-sm" style="color: hsl(240 3.8% 46.1%);">Dec 28, 2024</span>
+            </div>
+            <h3 class="text-lg font-semibold md:text-xl" style="color: hsl(240 10% 3.9%);">Q1 2025 Product Roadmap</h3>
+          </div>
+          <div class="px-6 pt-2">
+            <p style="color: hsl(240 3.8% 46.1%);">Here's what we're building in Q1 2025. New features for Spending Insights...</p>
+          </div>
+          <div class="flex items-center px-6 pb-6">
+            <span class="flex items-center" style="color: hsl(240 10% 3.9%);">Read more →</span>
+          </div>
+        </div>
+
+        <!-- Existing Article 2 (dimmed for comparison) -->
+        <div class="blog-card opacity-60">
+          <div class="aspect-16-9 w-full">
+            <div class="h-full w-full bg-gradient-to-br from-orange-500/20 via-amber-500/10 to-yellow-500/20 flex items-center justify-center">
+              <span class="text-4xl font-bold" style="color: rgb(249 115 22 / 0.3);">S</span>
+            </div>
+          </div>
+          <div class="px-6 pt-6">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="blog-badge badge-company">company</span>
+              <span class="text-sm" style="color: hsl(240 3.8% 46.1%);">Dec 27, 2024</span>
+            </div>
+            <h3 class="text-lg font-semibold md:text-xl" style="color: hsl(240 10% 3.9%);">Siphio AI Raises Seed Funding</h3>
+          </div>
+          <div class="px-6 pt-2">
+            <p style="color: hsl(240 3.8% 46.1%);">We're thrilled to announce that Siphio AI has raised seed funding...</p>
+          </div>
+          <div class="flex items-center px-6 pb-6">
+            <span class="flex items-center" style="color: hsl(240 10% 3.9%);">Read more →</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="border-t my-8" style="border-color: hsl(240 5.9% 90%);"></div>
+  </div>
+
+  <!-- Full Article Preview Section -->
+  <div class="max-w-4xl mx-auto px-4 pb-16">
+    <h2 class="text-sm font-semibold uppercase tracking-wide mb-6" style="color: hsl(240 3.8% 46.1%);">
+      Full Article Preview (as seen on /blog/{{SLUG}})
+    </h2>
+
+    <article class="rounded-xl border overflow-hidden" style="background: hsl(0 0% 100%); border-color: hsl(240 5.9% 90%); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);">
+      <!-- Article Header -->
+      <div class="p-8 pb-6 border-b" style="border-color: hsl(240 4.8% 95.9%);">
+        <div class="mb-4">
+          <span class="blog-badge badge-{{CATEGORY}}">
+            {{CATEGORY}}
+          </span>
+        </div>
+
+        <h1 class="text-3xl lg:text-4xl font-bold tracking-tight mb-4" style="color: hsl(240 10% 3.9%);">
+          {{TITLE}}
+        </h1>
+
+        <p class="text-xl mb-6" style="color: hsl(240 3.8% 46.1%);">
+          {{EXCERPT}}
+        </p>
+
+        <div class="flex items-center gap-6 text-sm" style="color: hsl(240 3.8% 46.1%);">
+          <div class="flex items-center gap-2">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: rgb(249 115 22 / 0.1);">
+              <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <span class="font-medium" style="color: hsl(240 10% 3.9%);">{{AUTHOR}}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            {{DATE}}
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Image -->
+      <div class="p-8" style="background: linear-gradient(to bottom right, rgb(255 247 237), rgb(254 252 232));">
+        <div class="rounded-xl overflow-hidden max-w-2xl mx-auto">
+          <img
+            src="{{IMAGE_PATH}}"
+            alt="{{TITLE}}"
+            class="w-full h-auto"
+            onerror="this.parentElement.parentElement.style.display='none';"
+          />
+        </div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="p-8 prose max-w-none">
+        {{CONTENT_HTML}}
+      </div>
+    </article>
+  </div>
+
+  <!-- Approval Instructions -->
+  <div class="max-w-4xl mx-auto px-4 pb-8">
+    <div class="p-4 rounded-lg border" style="background: rgb(239 246 255); border-color: rgb(191 219 254);">
+      <h3 class="font-semibold mb-2" style="color: rgb(30 58 138);">Ready to Publish?</h3>
+      <p class="text-sm" style="color: rgb(29 78 216);">
+        Return to the terminal and type
+        <code class="px-1.5 py-0.5 rounded" style="background: rgb(219 234 254);">yes</code> to publish,
+        <code class="px-1.5 py-0.5 rounded" style="background: rgb(219 234 254);">edit</code> to modify, or
+        <code class="px-1.5 py-0.5 rounded" style="background: rgb(219 234 254);">cancel</code> to abort.
+      </p>
+    </div>
+  </div>
+
+  <!-- Metadata Summary -->
+  <div class="max-w-4xl mx-auto px-4 pb-12">
+    <div class="p-4 rounded-lg text-sm" style="background: hsl(240 4.8% 95.9%); color: hsl(240 3.8% 46.1%);">
+      <h4 class="font-semibold mb-2" style="color: hsl(240 5.9% 10%);">Article Metadata</h4>
+      <div class="grid grid-cols-2 gap-2">
+        <div><span class="font-medium">Slug:</span> {{SLUG}}</div>
+        <div><span class="font-medium">Category:</span> {{CATEGORY}}</div>
+        <div><span class="font-medium">Author:</span> {{AUTHOR}}</div>
+        <div><span class="font-medium">Date:</span> {{DATE}}</div>
+        <div class="col-span-2"><span class="font-medium">Image:</span> {{IMAGE_PATH}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="border-t py-6 text-center text-sm" style="border-color: hsl(240 5.9% 90%); color: hsl(240 3.8% 46.1%);">
+    Siphio AI Blog Preview | Generated by /publish-article
+  </div>
+</body>
+</html>
