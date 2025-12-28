@@ -1,0 +1,29 @@
+{
+  "company": {
+    "name": "Siphio AI",
+    "tagline": "Building software that actually thinks",
+    "mission": "We build AI-native applications - software designed from the ground up with intelligence at its core, not as an afterthought.",
+    "founded": "2024",
+    "location": "Remote-first, based in the US",
+    "team_size": "Small team of senior engineers",
+    "philosophy": "We believe AI shouldn't be bolted onto existing products. We design software where intelligence is woven into every interaction."
+  },
+  "technology": {
+    "frontend": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    "backend": ["Python", "FastAPI", "Pydantic AI"],
+    "ai": ["Claude AI", "Grok", "Custom reasoning agents"],
+    "infrastructure": ["Supabase", "PostgreSQL", "Vercel"],
+    "approach": "We use modern, well-supported technologies. No bleeding-edge experiments in production - we ship reliable software."
+  },
+  "values": [
+    "Accuracy over fabrication - we never make up information",
+    "Simplicity over complexity - the best code is code you don't write",
+    "Shipping over planning - working software beats perfect plans",
+    "Honesty over hype - we tell you what AI can and can't do"
+  ],
+  "contact": {
+    "general": "hello@siphio.ai",
+    "careers": "careers@siphio.ai",
+    "support": "Use the chat assistant on our website"
+  }
+}

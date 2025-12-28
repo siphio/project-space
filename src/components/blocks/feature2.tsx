@@ -3,15 +3,15 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 interface Feature2Props {
-  title: string;
+  title?: string;
   description?: string;
-  imageSrc: string;
-  imageAlt: string;
-  buttonPrimary: {
+  imageSrc?: string;
+  imageAlt?: string;
+  buttonPrimary?: {
     text: string;
     href: string;
   };
-  buttonSecondary: {
+  buttonSecondary?: {
     text: string;
     href: string;
   };

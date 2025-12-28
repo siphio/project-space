@@ -1,0 +1,44 @@
+{
+  "apps": [
+    {
+      "slug": "spending-insights",
+      "name": "Spending Insights",
+      "tagline": "AI-driven financial clarity",
+      "description": "Connect your accounts and let the AI surface spending patterns, flag anomalies, and deliver insights you'd actually miss. Track every subscription in one place, get alerts before they renew, and see exactly where your money goes.",
+      "tech_stack": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Claude AI", "Plaid API"],
+      "why_built": "We built Spending Insights because managing personal finances shouldn't require a spreadsheet degree. Traditional budgeting apps show you numbers—we wanted an app that actually thinks about your money and surfaces the patterns you'd miss.",
+      "how_built": "Built with Next.js for a fast, responsive frontend. Supabase handles authentication and real-time data. Claude AI powers the intelligent insights engine, analyzing transactions to find patterns and anomalies. Plaid API securely connects to bank accounts.",
+      "features": ["AI spending analysis", "Anomaly detection", "Subscription tracking", "Renewal alerts", "Pattern recognition", "Real-time sync"],
+      "updates": [
+        {"date": "2024-12-27", "title": "Initial release of Spending Insights", "description": "Core dashboard with real-time spending analytics, AI-powered categorization, and anomaly detection system."},
+        {"date": "2024-12-26", "title": "Added subscription tracking feature", "description": "Dedicated subscription tracker that automatically detects recurring charges from transaction history."}
+      ]
+    },
+    {
+      "slug": "checklist-manager",
+      "name": "Checklist Manager",
+      "tagline": "AI-native task management built for clarity",
+      "description": "Organize your checklists while intelligent agents analyze completion patterns, predict blockers, and recommend smarter workflows. Track streaks, visualize progress, and let AI surface the insights you'd miss.",
+      "tech_stack": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Claude AI"],
+      "why_built": "Task management apps are everywhere, but most just store your todos. We wanted something that actually learns from your habits, predicts when you'll get stuck, and helps you build better workflows over time.",
+      "how_built": "Next.js powers the frontend with server components for optimal performance. Supabase provides real-time sync across devices. Claude AI analyzes task patterns to provide intelligent recommendations and predict potential blockers.",
+      "features": ["AI completion patterns", "Blocker prediction", "Streak tracking", "Progress visualization", "Real-time sync", "Dark mode"],
+      "updates": [
+        {"date": "2024-12-27", "title": "Initial release of Checklist Manager", "description": "Clean, focused interface for creating and managing checklists with full real-time sync across all devices."}
+      ]
+    },
+    {
+      "slug": "ai-agents",
+      "name": "AI Agents",
+      "tagline": "Genuinely intelligent agents, not glorified chatbots",
+      "description": "Our AI understands context, reasons through complexity, and adapts to situations it hasn't seen before. They synthesize information across systems, spot patterns humans miss, and make decisions grounded in your business reality.",
+      "tech_stack": ["Python", "Claude AI", "LangChain", "FastAPI", "PostgreSQL"],
+      "why_built": "Most 'AI agents' are just chatbots with fancy prompts. We built genuine reasoning agents that can handle ambiguity, maintain context across complex workflows, and actually think through problems rather than pattern-match responses.",
+      "how_built": "Built on Claude's advanced reasoning capabilities with custom orchestration layers. LangChain manages agent workflows and tool integration. FastAPI provides high-performance API endpoints. PostgreSQL stores conversation history and agent state.",
+      "features": ["Advanced reasoning", "Context maintenance", "Tool integration", "Multi-step workflows", "Custom orchestration", "Enterprise API"],
+      "updates": [
+        {"date": "2024-12-27", "title": "AI Agents documentation published", "description": "Comprehensive documentation covering agent workflows, integration patterns, and best practices for deploying agents in production environments."}
+      ]
+    }
+  ]
+}

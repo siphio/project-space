@@ -1,0 +1,64 @@
+{
+  "posts": [
+    {
+      "slug": "q1-2025-product-roadmap",
+      "title": "Q1 2025 Product Roadmap",
+      "excerpt": "Here's what we're building in Q1 2025. New features for Spending Insights, major updates to Checklist Manager, and exciting developments in our AI Agents platform. Get a sneak peek at what's coming next.",
+      "category": "product",
+      "author": "Product Team",
+      "published_at": "2024-12-28",
+      "topics": ["roadmap", "spending insights", "checklist manager", "ai agents", "2025", "features"],
+      "featured": false
+    },
+    {
+      "slug": "siphio-ai-raises-seed-funding",
+      "title": "Siphio AI Raises Seed Funding",
+      "excerpt": "We're thrilled to announce that Siphio AI has raised seed funding to accelerate our mission of building intelligent software. This investment will help us expand our team and ship more AI-native products.",
+      "category": "company",
+      "author": "Siphio Team",
+      "published_at": "2024-12-27",
+      "topics": ["funding", "investment", "growth", "team", "mission"],
+      "featured": false
+    },
+    {
+      "slug": "introducing-ai-agent-templates",
+      "title": "Introducing AI Agent Templates",
+      "excerpt": "Today we're launching AI Agent Templates - pre-built agent configurations for common use cases. Deploy intelligent agents in minutes, not weeks. From customer support to data analysis, we've got you covered.",
+      "category": "product",
+      "author": "Engineering Team",
+      "published_at": "2024-12-26",
+      "topics": ["ai agents", "templates", "customer support", "data analysis", "deployment"],
+      "featured": false
+    },
+    {
+      "slug": "welcome-to-siphio-ai",
+      "title": "Welcome to Siphio AI",
+      "excerpt": "We're excited to announce the official launch of Siphio AI. After months of development and refinement, we're ready to share our vision for the future of intelligent software. Learn about our mission to build applications that actually think, adapt, and get smarter over time.",
+      "category": "announcement",
+      "author": "Siphio Team",
+      "published_at": "2024-12-27",
+      "topics": ["launch", "mission", "products", "AI-native", "spending insights", "checklist manager", "ai agents"],
+      "featured": true
+    },
+    {
+      "slug": "were-hiring-senior-engineers",
+      "title": "We're Hiring: Senior Engineers",
+      "excerpt": "Join our team! We're actively hiring senior engineers who are passionate about AI and building products that matter. We're looking for full-stack and backend engineers to help us scale our intelligent software platform and create the next generation of AI-native applications.",
+      "category": "hiring",
+      "author": "Siphio Team",
+      "published_at": "2024-12-26",
+      "topics": ["hiring", "jobs", "careers", "engineering", "full-stack", "backend", "python", "typescript"],
+      "featured": false
+    },
+    {
+      "slug": "building-ai-native-applications",
+      "title": "Building AI-Native Applications: Our Approach",
+      "excerpt": "A deep dive into how we architect applications with AI at their core, not as an afterthought. Discover our principles for building truly intelligent software: context-aware systems, genuine reasoning over pattern matching, and graceful degradation that ensures reliability.",
+      "category": "engineering",
+      "author": "Engineering Team",
+      "published_at": "2024-12-25",
+      "topics": ["AI-native", "architecture", "engineering", "context", "reasoning", "design principles"],
+      "featured": false
+    }
+  ]
+}

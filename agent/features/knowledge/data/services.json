@@ -1,0 +1,27 @@
+{
+  "services": [
+    {
+      "name": "AI Agent Development",
+      "description": "Custom AI agents built for your specific business workflows. We design, build, and deploy reasoning agents that handle complex tasks autonomously.",
+      "deliverables": ["Custom agent architecture", "Tool integration", "Testing & deployment", "Documentation"],
+      "ideal_for": ["Startups needing automation", "Enterprises with complex workflows", "Products requiring AI features"],
+      "approach": "We work in 2-week sprints with clear deliverables. You get working software, not PowerPoint decks."
+    },
+    {
+      "name": "AI Integration Consulting",
+      "description": "Strategic guidance on integrating AI into your existing products. We help you identify high-impact opportunities and avoid common pitfalls.",
+      "deliverables": ["Technical assessment", "Integration roadmap", "Architecture recommendations", "Proof of concept"],
+      "ideal_for": ["Teams exploring AI", "CTOs evaluating options", "Products adding AI features"],
+      "approach": "We start with a technical deep-dive to understand your stack, then deliver actionable recommendations."
+    },
+    {
+      "name": "Full-Stack Development",
+      "description": "End-to-end application development with AI at the core. We build complete products, not just AI components.",
+      "deliverables": ["Full application", "API design", "Frontend & backend", "Deployment pipeline"],
+      "ideal_for": ["New product builds", "MVP development", "Rebuilding legacy systems"],
+      "approach": "Modern stack (Next.js, Python, Supabase) with AI-native architecture from day one."
+    }
+  ],
+  "pricing_approach": "We price based on value delivered, not hours worked. Typical engagements range from $5K for focused consulting to $50K+ for full product builds. We'll give you a clear quote after understanding your needs.",
+  "contact": "Reach out through the chat assistant or email hello@siphio.ai"
+}

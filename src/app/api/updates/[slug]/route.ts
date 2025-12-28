@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { readFileSync, writeFileSync } from "fs";
+import { writeFileSync, readFileSync } from "fs";
 import { join } from "path";
 
 interface RouteParams {
@@ -10,12 +10,8 @@ interface RouteParams {
 export async function GET(request: NextRequest, { params }: RouteParams) {
   try {
     const { slug } = await params;
-    const dataPath = join(process.cwd(), "src/data/apps.ts");
-    const fileContent = readFileSync(dataPath, "utf-8");
 
-    // Parse the apps data (simple regex extraction for now)
-    const appsMatch = fileContent.match(/export const apps[^}]+}[^}]+}/gs);
-
+    // TODO: Implement actual updates retrieval from apps.ts
     return NextResponse.json({
       success: true,
       message: `Updates for ${slug}`,

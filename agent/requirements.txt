@@ -1,0 +1,22 @@
+# Siphio AI Agent - Python Dependencies
+# Phase 1: Foundation
+
+# Agent Framework
+pydantic-ai-slim[openrouter]>=0.0.1
+
+# API Server
+fastapi>=0.100.0
+uvicorn>=0.23.0
+
+# Configuration
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+
+# HTTP Client (for future health checks)
+httpx>=0.25.0
+
+# Text matching
+rapidfuzz>=3.0.0
+
+# Database (using postgrest directly - avoids C++ build dependencies)
+postgrest>=2.0.0
