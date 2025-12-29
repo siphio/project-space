@@ -9,6 +9,6 @@ export const metadata: Metadata = {
 };
 
 export default function Blog() {
-  const posts = getAllBlogPosts();
+  const posts = getAllBlogPosts().slice(0, 6);
   return <BlogPage posts={posts} />;
 }

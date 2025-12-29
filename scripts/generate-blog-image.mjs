@@ -2,8 +2,11 @@
 /**
  * Generate or edit blog images using fal.ai
  *
- * GENERATE MODE (default):
+ * GENERATE MODE (default - adds 3D style prefix):
  *   node scripts/generate-blog-image.mjs "subject description" "./output.png"
+ *
+ * RAW MODE (use prompt as-is, for brand-compliant prompts):
+ *   node scripts/generate-blog-image.mjs --raw "full prompt with styling" "./output.png"
  *
  * EDIT MODE:
  *   node scripts/generate-blog-image.mjs --edit "edit instructions" "./input.png" "./output.png"
@@ -37,8 +40,9 @@ try {
 // 3D style prefix for consistent blog imagery
 const STYLE_PREFIX = `Glossy 3D render, reflective surfaces, clean gradient background, soft studio lighting, minimal composition, modern tech aesthetic, no text, no logos, centered subject, professional product shot`;
 
-// Check for edit mode
+// Check for mode flags
 const isEditMode = process.argv[2] === "--edit";
+const isRawMode = process.argv[2] === "--raw";
 
 // Parse CLI arguments based on mode
 let prompt, inputPath, outputPath;
@@ -59,6 +63,17 @@ if (isEditMode) {
     console.error(`Error: Input file not found: ${inputPath}`);
     process.exit(1);
   }
+} else if (isRawMode) {
+  // Raw mode: --raw "full prompt" "./output.png"
+  [, , , prompt, outputPath] = process.argv;
+
+  if (!prompt || !outputPath) {
+    console.error("Raw mode usage (for brand-compliant prompts):");
+    console.error(
+      '  node generate-blog-image.mjs --raw "full styled prompt" "./public/blog-image.png"'
+    );
+    process.exit(1);
+  }
 } else {
   // Generate mode: "subject" "./output.png"
   [, , prompt, outputPath] = process.argv;
@@ -67,6 +82,11 @@ if (isEditMode) {
     console.error("Generate mode usage:");
     console.error(
       '  node generate-blog-image.mjs "robot assistant" "./public/blog-robot.png"'
+    );
+    console.error("");
+    console.error("Raw mode usage (for brand-compliant prompts):");
+    console.error(
+      '  node generate-blog-image.mjs --raw "full styled prompt" "./output.png"'
     );
     console.error("");
     console.error("Edit mode usage:");
@@ -129,9 +149,11 @@ async function downloadAndSave(imageUrl, savePath) {
  * Generate a new image from text prompt
  */
 async function generateImage() {
-  const fullPrompt = `${STYLE_PREFIX}, ${prompt}`;
+  // In raw mode, use prompt as-is; otherwise add 3D style prefix
+  const fullPrompt = isRawMode ? prompt : `${STYLE_PREFIX}, ${prompt}`;
 
-  console.log(`Generating image for: "${prompt}"`);
+  console.log(`Mode: ${isRawMode ? "raw (brand-compliant)" : "styled (3D render)"}`);
+  console.log(`Generating image...`);
   console.log(`Output: ${outputPath}`);
 
   try {
