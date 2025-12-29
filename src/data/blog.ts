@@ -16,6 +16,48 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "8",
+    slug: "one-command-to-publish-automation",
+    title: "One Command to Publish: Embracing the Age of Automation",
+    excerpt: "We built a single command that writes, illustrates, and publishes blog articles. Here's why we believe automation is the future of how businesses operate.",
+    content: `## Shipping Features, Then Telling the World
+
+We've all been there. You finish building something great, push the code, and then... the blog post sits on your mental to-do list for weeks. The friction between shipping and announcing is real.
+
+So we automated it.
+
+### Introducing /publish-article
+
+With a single command, we can now:
+
+- **Gather context** from git history and planning documents
+- **Generate article content** that matches our brand voice
+- **Create a matching illustration** using AI image generation
+- **Preview everything** in the browser before publishing
+- **Deploy live** with one confirmation
+
+What used to take an hour now takes minutes.
+
+## Why We Believe in Automation
+
+At Siphio, we see automation not as replacing human work, but as amplifying human creativity. Every repetitive task we automate frees us to focus on what matters: building thoughtful products and connecting with people.
+
+This is the new era of business. Small teams achieving what once required entire departments. Not by working harder, but by working smarter.
+
+### What's Next
+
+We're just getting started. Every process that can be automated, should be. Not for efficiency's sake alone, but to give ourselves the space to do meaningful work.
+
+The future belongs to those who build their own tools.`,
+    category: "announcement",
+    image: "/blog-one-command-to-publish-automation.png",
+    author: {
+      name: "Siphio Team",
+    },
+    publishedAt: "2024-12-29",
+    featured: false,
+  },
+  {
     id: "7",
     slug: "meet-siphio-ai-assistant",
     title: "Meet SIPHIO: Your AI-Powered Website Assistant",
